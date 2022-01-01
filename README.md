@@ -7,7 +7,10 @@
 
 # 参考資料
 #
-# 逆引きGit入門
+# 本 逆引きGit入門
 #
 # 
-#
+# web https://qiita.com/yukiyoshimura/items/7aa4a8f8db493ab97c2b
+# 
+# 
+# 

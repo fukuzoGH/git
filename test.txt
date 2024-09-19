@@ -32,5 +32,44 @@ print $who . "さん。" . $age . "才";
 ?>
 </body>
 </html>
+--------------------------------
+chap02
+2-4
+print_r.php
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>print_r()で配列とオブジェクトの値を確認する</title>
+</head>
+<body>
+<?php
+$colors = array("red", "blue", "green");
+$now = new DateTime();
+print_r($colors);
+print_r($now);
+?>
+</body>
+</html>
+--------------------------------
+chap02
+2-4
+var_dump_pre.php
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>var_dump()をブラウザでも見やすく出力する</title>
+</head>
+<body>
+<pre>
+<?php
+$colors = array("red", "blue", "green");
+var_dump($colors);
+?>
+</pre>
+</body>
+</html>
 --------------------------------

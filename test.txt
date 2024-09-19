@@ -155,3 +155,43 @@ var_dump($userName)
 </body>
 </html>
 --------------------------------
+chap02
+2-5
+amari.php
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>余り</title>
+</head>
+<body>
+<?php
+$ans = 11.6%4.1;
+echo $ans;
+?>
+</body>
+</html>
+--------------------------------
+chap02
+2-5
+assignment1.php
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>変数に値を代入する</title>
+</head>
+<body>
+<pre>
+<?php
+$a = 100;
+$b = $a + 1;
+var_dump($a);
+var_dump($b);
+?>
+</pre>
+</body>
+</html>
+--------------------------------

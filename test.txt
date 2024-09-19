@@ -195,3 +195,162 @@ var_dump($b);
 </body>
 </html>
 --------------------------------
+css
+style.css
+
+@charset "UTF-8";
+div{
+	margin: 1em;
+}
+
+li {
+	list-style-type: none;
+	margin-bottom: 1em;
+}
+
+ol > li {
+	list-style-type: decimal;
+	margin-bottom: 0;
+}
+
+a{
+	color: #5e78c1;
+	text-decoration: none;
+}
+a:hover{
+	color: #b04188;
+	text-decoration: underline;
+}
+
+.error {
+	color: #FF0000;
+}
+--------------------------------
+css
+tablestyle.css
+
+@charset "UTF-8";
+table {
+	margin: 2em;
+	padding: 0;
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #7ac2ff;
+	text-align: left;
+}
+
+tr *{
+	padding: : 0.5em 1em 0.5em 1em;
+	width: auto;
+	text-align: left;
+}
+
+tbody tr *:first-child{
+	width: 3em;
+}
+
+tbody tr *:nth-child(2){
+	width: 8em;
+}
+
+tbody tr *:nth-child(3){
+	width: 4em;
+}
+
+tbody tr *:nth-child(4){
+	width: 3em;
+}
+
+tbody tr *:nth-child(5){
+	width: 3em;
+	text-align: right;
+}
+
+tbody tr:nth-child(even) td {
+	background-color: #dff0ff;
+}
+--------------------------------
+css
+tablestyle2.css
+
+@charset "UTF-8";
+table {
+	margin: 2em;
+	padding: 0;
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #7ac2ff;
+	text-align: left;
+}
+
+tr *{
+	padding: : 0.5em 1em 0.5em 1em;
+	width: auto;
+	text-align: left;
+}
+
+tbody tr *:first-child{
+	width: 4em;
+}
+
+tbody tr *:nth-child(2){
+	width: 12em;
+}
+
+tbody tr *:nth-child(3){
+	width: 5em;
+}
+
+tbody tr *:nth-child(4){
+	width: 8em;
+}
+
+tbody tr *:nth-child(5){
+	width: 4em;
+	text-align: right;
+}
+
+tbody tr:nth-child(even) td {
+	background-color: #dff0ff;
+}
+--------------------------------
+lib
+util.php
+
+<?php
+// XSS対策のためのHTMLエスケープ
+function es(array|string $data, string $charset='UTF-8'):mixed {
+  // $dataが配列のとき
+  if (is_array($data)){
+    // 再帰呼び出し
+    return array_map(__METHOD__, $data);
+  } else {
+    // HTMLエスケープを行う
+    return htmlspecialchars(string:$data, flags:ENT_QUOTES, encoding:$charset);
+  }
+}
+
+// 配列の文字エンコードのチェックを行う
+function cken(array $data):bool{
+  $result = true;
+  foreach ($data as $key => $value) {
+    if (is_array($value)){
+      // 含まれている値が配列のとき文字列に連結する
+      $value = implode("", $value);
+    }
+    if (!mb_check_encoding($value)){
+      // 文字エンコードが一致しないとき
+      $result = false;
+      // foreachでの走査をブレイクする
+      break;
+    }
+  }
+  return $result;
+}
+// ?>
+--------------------------------
+

@@ -73,3 +73,22 @@ var_dump($colors);
 </body>
 </html>
 --------------------------------
+chap02
+2-4
+echo1.php
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>echo</title>
+</head>
+<body>
+<?php
+echo "こんにちは";
+echo "<br>";
+echo("ありがとう");
+?>
+</body>
+</html>
+------------------------
